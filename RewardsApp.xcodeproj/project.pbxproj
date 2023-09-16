@@ -18,6 +18,7 @@
 		A92E615E2AB3F47800F9F283 /* CardScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92E615D2AB3F47800F9F283 /* CardScrollView.swift */; };
 		A92E61602AB3F51100F9F283 /* CustomCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92E615F2AB3F51100F9F283 /* CustomCorner.swift */; };
 		A92E61622AB3FC2200F9F283 /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92E61612AB3FC2200F9F283 /* CardModel.swift */; };
+		A92E61642AB4B6BF00F9F283 /* CardDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92E61632AB4B6BF00F9F283 /* CardDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		A92E615D2AB3F47800F9F283 /* CardScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardScrollView.swift; sourceTree = "<group>"; };
 		A92E615F2AB3F51100F9F283 /* CustomCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCorner.swift; sourceTree = "<group>"; };
 		A92E61612AB3FC2200F9F283 /* CardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
+		A92E61632AB4B6BF00F9F283 /* CardDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				A92E61402AB3D51D00F9F283 /* HomePage.swift */,
+				A92E61632AB4B6BF00F9F283 /* CardDetailView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 				A92E615B2AB3EB4700F9F283 /* CardRectKey.swift in Sources */,
 				A92E61622AB3FC2200F9F283 /* CardModel.swift in Sources */,
 				A92E61532AB3E05200F9F283 /* CategoryScrollView.swift in Sources */,
+				A92E61642AB4B6BF00F9F283 /* CardDetailView.swift in Sources */,
 				A92E61582AB3EAE200F9F283 /* CardView.swift in Sources */,
 				A92E615E2AB3F47800F9F283 /* CardScrollView.swift in Sources */,
 			);

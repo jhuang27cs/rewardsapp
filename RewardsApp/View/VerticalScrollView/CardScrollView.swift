@@ -9,18 +9,39 @@ import SwiftUI
 
 struct CardScrollView: View {
     var cards = MockData.cards()
+    @State private var expandCards: Bool = false
+    @State private var showDetailView: Bool = false
+    
+    @Binding var selectedCard: CardModel?
+    @Namespace private var animation
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack(spacing: 8) {
                 ForEach(cards) { card in
                     let index = CGFloat(indexOf(card))
-                    CardView(card: card)
-                        .frame(height: 160)
-                        .offset(y: index * -200)
+                    if showDetailView {
+                        NavigationLink(destination: CardDetailView(card: card)) {
+                            CardView(card: card)
+                                .frame(height: 160)
+                                .offset(y: 0)
+                        }
+                    } else {
+                        CardView(card: card)
+                            .frame(height: 160)
+                            .offset(y: expandCards ? 0 : index * -90)
+                            .onTapGesture {
+                                withAnimation(.easeInOut(duration: 0.35)) {
+                                    expandCards = true
+                                }
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+                                    showDetailView = true
+                                }
+                            }
+                    }
                 }
             }
-            .padding(.bottom, 16)
+            .padding(.bottom, CGFloat(cards.count-1) * -200)
         }
         .frame(maxWidth: .infinity)
         .background {
@@ -31,6 +52,10 @@ struct CardScrollView: View {
                         radius: 10,
                         x: 0,
                         y: -5)
+        }
+        .onAppear {
+            showDetailView = false
+            expandCards = false
         }
     }
     
@@ -43,6 +68,6 @@ struct CardScrollView: View {
 
 struct CardScrollView_Previews: PreviewProvider {
     static var previews: some View {
-        CardScrollView()
+        CardScrollView(selectedCard: .constant(MockData.singleCard()))
     }
 }

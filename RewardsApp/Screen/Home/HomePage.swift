@@ -8,43 +8,46 @@
 import SwiftUI
 
 struct HomePage: View {
+    @State var selectedCard: CardModel?
+    @State var shouldNav: Bool = false
     var body: some View {
-        VStack {
-            HStack {
-                Button {
-                    print("show menu")
-                } label: {
-                    Image("menu")
-                        .imageScale(.large)
-                        .foregroundColor(.black)
+        NavigationView {
+            VStack {
+                HStack {
+                    Button {
+                        print("show menu")
+                    } label: {
+                        Image("menu")
+                            .imageScale(.large)
+                            .foregroundColor(.black)
+                    }
+                    SearchView()
+                    Button {
+                        print("show scan")
+                    } label: {
+                        Image("scan")
+                            .imageScale(.large)
+                            .foregroundColor(.black)
+                    }
                 }
-                SearchView()
-                Button {
-                    print("show scan")
-                } label: {
-                    Image("scan")
-                        .imageScale(.large)
-                        .foregroundColor(.black)
-                }
+                CategoryScrollView()
+                    .frame(height:56)
+                CardsView()
             }
-            CategoryScrollView()
-                .frame(height:56)
-            CardsView()
-        }
-        .padding(.horizontal, 16)
-        .background {
-            Rectangle()
-                .fill(.black.opacity(0.02))
-                .ignoresSafeArea()
-        }
-        .overlayPreferenceValue(CardRectKey.self) { preferences in
-            if let cardPreference = preferences["CardRect"] {
-                GeometryReader { proxy in
-                    let cardRect = proxy[cardPreference]
-                    
-                    CardScrollView()
-                        .frame(width: cardRect.width, height: cardRect.height)
-                        .offset(x: cardRect.minX, y: cardRect.minY)
+            .padding(.horizontal, 16)
+            .background {
+                Rectangle()
+                    .fill(.black.opacity(0.02))
+                    .ignoresSafeArea()
+            }
+            .overlayPreferenceValue(CardRectKey.self) { preferences in
+                if let cardPreference = preferences["CardRect"] {
+                    GeometryReader { proxy in
+                        let cardRect = proxy[cardPreference]
+                        CardScrollView(selectedCard: $selectedCard)
+                            .frame(width: cardRect.width, height: cardRect.height)
+                            .offset(x: cardRect.minX, y: cardRect.minY)
+                    }
                 }
             }
         }
