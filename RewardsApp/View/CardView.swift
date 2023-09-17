@@ -10,8 +10,7 @@ import SwiftUI
 struct CardView: View {
     var card: CardModel
     var body: some View {
-        GeometryReader {
-            let size = $0.size
+        GeometryReader {_ in 
             VStack(spacing: 0) {
                 ZStack {
                     Rectangle()

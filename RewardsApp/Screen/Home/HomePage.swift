@@ -10,6 +10,9 @@ import SwiftUI
 struct HomePage: View {
     @State var selectedCard: CardModel?
     @State var shouldNav: Bool = false
+    @State var showScan: Bool = false
+    @State var shouldStartScan: Bool = false
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -22,9 +25,7 @@ struct HomePage: View {
                             .foregroundColor(.black)
                     }
                     SearchView()
-                    Button {
-                        print("show scan")
-                    } label: {
+                    NavigationLink(destination: ScannerPage()) {
                         Image("scan")
                             .imageScale(.large)
                             .foregroundColor(.black)
@@ -41,12 +42,14 @@ struct HomePage: View {
                     .ignoresSafeArea()
             }
             .overlayPreferenceValue(CardRectKey.self) { preferences in
-                if let cardPreference = preferences["CardRect"] {
-                    GeometryReader { proxy in
-                        let cardRect = proxy[cardPreference]
-                        CardScrollView(selectedCard: $selectedCard)
-                            .frame(width: cardRect.width, height: cardRect.height)
-                            .offset(x: cardRect.minX, y: cardRect.minY)
+                if !showScan {
+                    if let cardPreference = preferences["CardRect"] {
+                        GeometryReader { proxy in
+                            let cardRect = proxy[cardPreference]
+                            CardScrollView(selectedCard: $selectedCard)
+                                .frame(width: cardRect.width, height: cardRect.height)
+                                .offset(x: cardRect.minX, y: cardRect.minY)
+                        }
                     }
                 }
             }

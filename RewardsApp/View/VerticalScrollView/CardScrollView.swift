@@ -21,7 +21,7 @@ struct CardScrollView: View {
                 ForEach(cards) { card in
                     let index = CGFloat(indexOf(card))
                     if showDetailView {
-                        NavigationLink(destination: CardDetailView(card: card)) {
+                        NavigationLink(destination: CardDetailPage(card: card)) {
                             CardView(card: card)
                                 .frame(height: 160)
                                 .offset(y: 0)
@@ -34,7 +34,7 @@ struct CardScrollView: View {
                                 withAnimation(.easeInOut(duration: 0.35)) {
                                     expandCards = true
                                 }
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.36) {
                                     showDetailView = true
                                 }
                             }

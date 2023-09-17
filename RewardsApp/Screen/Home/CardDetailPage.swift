@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CardDetailView: View {
+struct CardDetailPage: View {
     var card: CardModel
     var body: some View {
         NavigationView {
@@ -20,6 +20,6 @@ struct CardDetailView: View {
 
 struct CardDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        CardDetailView(card: MockData.singleCard())
+        CardDetailPage(card: MockData.singleCard())
     }
 }

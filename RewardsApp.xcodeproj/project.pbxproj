@@ -18,7 +18,12 @@
 		A92E615E2AB3F47800F9F283 /* CardScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92E615D2AB3F47800F9F283 /* CardScrollView.swift */; };
 		A92E61602AB3F51100F9F283 /* CustomCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92E615F2AB3F51100F9F283 /* CustomCorner.swift */; };
 		A92E61622AB3FC2200F9F283 /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92E61612AB3FC2200F9F283 /* CardModel.swift */; };
-		A92E61642AB4B6BF00F9F283 /* CardDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92E61632AB4B6BF00F9F283 /* CardDetailView.swift */; };
+		A92E61642AB4B6BF00F9F283 /* CardDetailPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92E61632AB4B6BF00F9F283 /* CardDetailPage.swift */; };
+		A92E61672AB65B8000F9F283 /* ScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92E61662AB65B8000F9F283 /* ScannerView.swift */; };
+		A92E61692AB65BBB00F9F283 /* ScannerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92E61682AB65BBB00F9F283 /* ScannerVC.swift */; };
+		A92E616C2AB65BEF00F9F283 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92E616B2AB65BEF00F9F283 /* Alert.swift */; };
+		A92E616E2AB65C4700F9F283 /* BarcodeScannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92E616D2AB65C4700F9F283 /* BarcodeScannerViewModel.swift */; };
+		A92E61702AB66BAB00F9F283 /* ScannerPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92E616F2AB66BAB00F9F283 /* ScannerPage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,7 +39,12 @@
 		A92E615D2AB3F47800F9F283 /* CardScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardScrollView.swift; sourceTree = "<group>"; };
 		A92E615F2AB3F51100F9F283 /* CustomCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCorner.swift; sourceTree = "<group>"; };
 		A92E61612AB3FC2200F9F283 /* CardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
-		A92E61632AB4B6BF00F9F283 /* CardDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailView.swift; sourceTree = "<group>"; };
+		A92E61632AB4B6BF00F9F283 /* CardDetailPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailPage.swift; sourceTree = "<group>"; };
+		A92E61662AB65B8000F9F283 /* ScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerView.swift; sourceTree = "<group>"; };
+		A92E61682AB65BBB00F9F283 /* ScannerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerVC.swift; sourceTree = "<group>"; };
+		A92E616B2AB65BEF00F9F283 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		A92E616D2AB65C4700F9F283 /* BarcodeScannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerViewModel.swift; sourceTree = "<group>"; };
+		A92E616F2AB66BAB00F9F283 /* ScannerPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerPage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +77,7 @@
 		A92E613D2AB3D51D00F9F283 /* RewardsApp */ = {
 			isa = PBXGroup;
 			children = (
+				A92E616A2AB65BDF00F9F283 /* Utility */,
 				A92E61592AB3EB3A00F9F283 /* Model */,
 				A92E614F2AB3D98B00F9F283 /* ViewModel */,
 				A92E614C2AB3D95B00F9F283 /* View */,
@@ -93,6 +104,7 @@
 				A92E61542AB3E08A00F9F283 /* HorizontalScrollView */,
 				A92E615C2AB3F45000F9F283 /* VerticalScrollView */,
 				A92E615F2AB3F51100F9F283 /* CustomCorner.swift */,
+				A92E61652AB65B5400F9F283 /* UIKitComponents */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -110,7 +122,8 @@
 			isa = PBXGroup;
 			children = (
 				A92E61402AB3D51D00F9F283 /* HomePage.swift */,
-				A92E61632AB4B6BF00F9F283 /* CardDetailView.swift */,
+				A92E61632AB4B6BF00F9F283 /* CardDetailPage.swift */,
+				A92E616F2AB66BAB00F9F283 /* ScannerPage.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -118,6 +131,7 @@
 		A92E614F2AB3D98B00F9F283 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				A92E616D2AB65C4700F9F283 /* BarcodeScannerViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -145,6 +159,23 @@
 				A92E615D2AB3F47800F9F283 /* CardScrollView.swift */,
 			);
 			path = VerticalScrollView;
+			sourceTree = "<group>";
+		};
+		A92E61652AB65B5400F9F283 /* UIKitComponents */ = {
+			isa = PBXGroup;
+			children = (
+				A92E61662AB65B8000F9F283 /* ScannerView.swift */,
+				A92E61682AB65BBB00F9F283 /* ScannerVC.swift */,
+			);
+			path = UIKitComponents;
+			sourceTree = "<group>";
+		};
+		A92E616A2AB65BDF00F9F283 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				A92E616B2AB65BEF00F9F283 /* Alert.swift */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,10 +253,15 @@
 				A92E61512AB3D9B300F9F283 /* SearchView.swift in Sources */,
 				A92E613F2AB3D51D00F9F283 /* RewardsAppApp.swift in Sources */,
 				A92E615B2AB3EB4700F9F283 /* CardRectKey.swift in Sources */,
+				A92E616C2AB65BEF00F9F283 /* Alert.swift in Sources */,
 				A92E61622AB3FC2200F9F283 /* CardModel.swift in Sources */,
 				A92E61532AB3E05200F9F283 /* CategoryScrollView.swift in Sources */,
-				A92E61642AB4B6BF00F9F283 /* CardDetailView.swift in Sources */,
+				A92E61642AB4B6BF00F9F283 /* CardDetailPage.swift in Sources */,
+				A92E61702AB66BAB00F9F283 /* ScannerPage.swift in Sources */,
 				A92E61582AB3EAE200F9F283 /* CardView.swift in Sources */,
+				A92E61692AB65BBB00F9F283 /* ScannerVC.swift in Sources */,
+				A92E61672AB65B8000F9F283 /* ScannerView.swift in Sources */,
+				A92E616E2AB65C4700F9F283 /* BarcodeScannerViewModel.swift in Sources */,
 				A92E615E2AB3F47800F9F283 /* CardScrollView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -358,6 +394,7 @@
 				DEVELOPMENT_TEAM = V66PN43RHT;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need use your Camera to scan bar code";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -387,6 +424,7 @@
 				DEVELOPMENT_TEAM = V66PN43RHT;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need use your Camera to scan bar code";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
