@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CardScrollView: View {
-    var cards = MockData.cards()
+    @Binding var cards: [CardModel]
     @State private var expandCards: Bool = false
     @State private var showDetailView: Bool = false
     
@@ -68,6 +68,6 @@ struct CardScrollView: View {
 
 struct CardScrollView_Previews: PreviewProvider {
     static var previews: some View {
-        CardScrollView(selectedCard: .constant(MockData.singleCard()))
+        CardScrollView(cards: .constant(MockData.cards()) ,selectedCard: .constant(MockData.singleCard()))
     }
 }

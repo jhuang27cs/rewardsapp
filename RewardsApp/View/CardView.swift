@@ -51,7 +51,7 @@ struct CardView: View {
                         }
                         HStack {
                             ForEach(0 ..< card.totalCheckMarks, id: \.self) { i in
-                                Image(i-1 <= card.checkMarks ? "check" : "uncheck")
+                                Image(i+1 <= card.checkMarks ? "check" : "uncheck")
                                     .resizable()
                                     .frame(width: 32, height: 32)
                             }

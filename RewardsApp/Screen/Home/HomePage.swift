@@ -6,12 +6,17 @@
 //
 
 import SwiftUI
+import Combine
 
 struct HomePage: View {
     @State var selectedCard: CardModel?
     @State var shouldNav: Bool = false
     @State var showScan: Bool = false
     @State var shouldStartScan: Bool = false
+    @StateObject var viewModel = BarcodeScannerViewModel()
+    var cancellables = Set<AnyCancellable>()
+    @State var shouldPresent: Bool = false
+    @State var cards = MockData.cards()
     
     var body: some View {
         NavigationView {
@@ -25,7 +30,7 @@ struct HomePage: View {
                             .foregroundColor(.black)
                     }
                     SearchView()
-                    NavigationLink(destination: ScannerPage()) {
+                    NavigationLink(destination: ScannerPage(viewModel: viewModel)) {
                         Image("scan")
                             .imageScale(.large)
                             .foregroundColor(.black)
@@ -46,13 +51,24 @@ struct HomePage: View {
                     if let cardPreference = preferences["CardRect"] {
                         GeometryReader { proxy in
                             let cardRect = proxy[cardPreference]
-                            CardScrollView(selectedCard: $selectedCard)
+                            CardScrollView( cards: $cards, selectedCard: $selectedCard)
                                 .frame(width: cardRect.width, height: cardRect.height)
                                 .offset(x: cardRect.minX, y: cardRect.minY)
                         }
                     }
                 }
             }
+        }
+        .onChange(of: viewModel.scannedCode, perform: { scanedCode in
+            if scanedCode != "" {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                    shouldPresent = true
+                }
+                cards[cards.count-1].checkMarks += 1
+                viewModel.scannedCode = ""
+            }
+        })
+        .alert("reward added", isPresented: $shouldPresent) {
         }
     }
     @ViewBuilder
